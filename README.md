@@ -8,9 +8,12 @@ Este proyecto es una API REST que permite crear y consultar recetas/productos a�
 
 ## CÓMO EJECUTAR EL PROYECTO
 1. Tener instalado Docker Desktop.
-2. Levantar el entorno
+2. Configurar credenciales:
+    - Cambia el nombre del fichero .env.example por .env.
+    - Ábrelo y pon tus propias credenciales (usuario, contraseña, etc.).
+4. Levantar el entorno
     - Clona el repositorio y ejecuta el siguiente comando en la raíz del proyecto:
       
           docker compose up --build
-3. Documentación de la API
+5. Documentación de la API
     - Una vez que el contenedor esté corriendo, puedes acceder a la documentación interactiva (Swagger UI) para probar las rutas: [enlace para acceder a Swagger UI](http://localhost:8000/docs)
