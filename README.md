@@ -17,3 +17,6 @@ Este proyecto es una API REST que permite crear y consultar recetas/productos a�
           docker compose up --build
 5. Documentación de la API
     - Una vez que el contenedor esté corriendo, puedes acceder a la documentación interactiva (Swagger UI) para probar las rutas: [enlace para acceder a Swagger UI](http://localhost:8000/docs)
+
+---- 
+[Mismo proyecto pero funcionando con JSONB](https://github.com/jesuscb123/proyecto_fastAPI_JesusCondeBarba/tree/pruebas-jsonb)
