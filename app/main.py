@@ -2,9 +2,9 @@ from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy import select
 from app.database.database import SessionLocal, engine, Base
-from model.producto import Producto
-from model.ingrediente import Ingrediente
-from .schemas.productoSchema import ProductoSchema
+from app.model.producto import Producto
+from app.model.ingrediente import Ingrediente
+from app.schemas.productoSchema import ProductoSchema
 
 Base.metadata.create_all(bind = engine)
 app = FastAPI()
@@ -24,7 +24,7 @@ def listar_productos(db: Session = Depends(obtener_sesion)):
     query = select(Producto)
     return db.execute(query).scalars().all()
 
-@app.post("/productos")
+@app.post("/productos", response_model=ProductoSchema)
 def insertar_producto(producto: ProductoSchema, db: Session = Depends(obtener_sesion)):
     nuevo_producto = Producto(nombre = producto.nombre)
 
