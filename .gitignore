@@ -1,0 +1,13 @@
+.venv/
+env/
+venv/
+ENV/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.db
+local.db
+postgres_data/
+.env
+.vscode/
+.idea/
