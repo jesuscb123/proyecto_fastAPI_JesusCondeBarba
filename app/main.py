@@ -4,8 +4,7 @@ from sqlalchemy import select
 from app.database.database import SessionLocal, engine, Base
 from model.producto import Producto
 from model.ingrediente import Ingrediente
-
-from schemas.productoSchema import ProductoSchema
+from .schemas.productoSchema import ProductoSchema
 
 Base.metadata.create_all(bind = engine)
 app = FastAPI()
