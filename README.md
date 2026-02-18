@@ -14,7 +14,7 @@ Este proyecto es una aplicación web completa para la gestión de recetas. Permi
 ## 🚀 Características Principales
 
 *   **Autenticación Segura**: Registro y Login de usuarios mediante JWT (JSON Web Tokens).
-*   **Gestión de Productos**: CRUD completo (Crear, Leer, Actualizar, Borrar) de productos.
+*   **Gestión de Productos**:(Crear, Leer) productos.
 *   **Ingredientes**: Asociación de ingredientes a cada producto.
 *   **Relaciones**: Cada producto pertenece a un usuario específico ("dueño").
 *   **Documentación Interactiva**: Swagger UI y Redoc integrados automáticamente.
