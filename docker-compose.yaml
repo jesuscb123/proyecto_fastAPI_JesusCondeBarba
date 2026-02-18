@@ -12,6 +12,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    restart: always
 
   api:
     build: .
@@ -22,6 +23,17 @@ services:
       - .env
     depends_on:
       - db
+    restart: always
+
+
+  frontend:
+    build: ./frontend 
+    container_name: vue_frontend
+    ports:
+      - "8080:80"  
+    depends_on:
+      - api
+    restart: always
 
 volumes:
   postgres_data:
