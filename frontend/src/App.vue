@@ -12,7 +12,7 @@ const handleLogout = () => {
 </script>
 
 <template>
-  <header v-if="true" class="main-header">
+  <header v-if="auth.token" class="main-header">
     <nav>
       <div class="nav-links">
         <router-link to="/productos-todos">🌎 Comunidad</router-link>
@@ -33,9 +33,8 @@ const handleLogout = () => {
 </template>
 
 <style scoped>
-/* Estos estilos aseguran que el header sea visible incluso si el CSS externo falla */
+/* Eliminamos el !important del display para que el v-if de Vue pueda ocultarlo correctamente */
 .main-header {
-  display: block !important;
   width: 100%;
   min-height: 60px;
 }

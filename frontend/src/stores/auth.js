@@ -16,7 +16,7 @@ export const useAuthStore = defineStore('auth', {
     token: localStorage.getItem('token') || null,
     userEmail: localStorage.getItem('email') || null,
   }),
-  
+
   actions: {
     async login(email, password) {
       const formData = new FormData()
@@ -25,13 +25,13 @@ export const useAuthStore = defineStore('auth', {
 
       try {
         const res = await axios.post('http://localhost:8000/login', formData)
-        
+
         this.token = res.data.access_token
         this.userEmail = email
 
         localStorage.setItem('token', this.token)
         localStorage.setItem('email', email)
-        
+
         return true
       } catch (error) {
         console.error("Error al entrar:", error)
@@ -42,9 +42,9 @@ export const useAuthStore = defineStore('auth', {
     logout() {
       this.token = null
       this.userEmail = null
-  
       localStorage.removeItem('token')
       localStorage.removeItem('email')
+      localStorage.clear()
 
     },
 
@@ -61,12 +61,12 @@ export const useAuthStore = defineStore('auth', {
       }
     },
 
-    async crearProducto(nombre, ingredientesArray) { 
+    async crearProducto(nombre, ingredientesArray) {
       try {
 
-        await axios.post('http://localhost:8000/productos', { 
-          nombre: nombre, 
-          ingredientes: ingredientesArray 
+        await axios.post('http://localhost:8000/productos', {
+          nombre: nombre,
+          ingredientes: ingredientesArray
         })
         return true
       } catch (error) {
