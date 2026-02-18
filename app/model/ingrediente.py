@@ -4,8 +4,10 @@ from app.database.database import Base
 
 class Ingrediente(Base):
     __tablename__ = "ingredientes"
+
     id: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str] = mapped_column()
+    
     producto_id: Mapped[int] = mapped_column(ForeignKey("productos.id"))
 
-    dueño: Mapped["Producto"] = relationship(back_populates="ingredientes")
+    producto: Mapped["Producto"] = relationship(back_populates="ingredientes")

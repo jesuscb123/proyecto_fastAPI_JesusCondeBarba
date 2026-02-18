@@ -5,6 +5,11 @@ from app.database.database import Base
 
 class Producto(Base):
     __tablename__ = "productos"
+    
     id: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str] = mapped_column()
-    ingredientes: Mapped[List["Ingrediente"]] = relationship(back_populates="dueño")
+    
+    usuario_id: Mapped[int] = mapped_column(ForeignKey("usuarios.id"))
+    dueño: Mapped["Usuario"] = relationship(back_populates="productos")
+
+    ingredientes: Mapped[List["Ingrediente"]] = relationship(back_populates="producto")
