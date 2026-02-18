@@ -13,10 +13,18 @@ from fastapi.security import OAuth2PasswordRequestForm
 from jose import jwt, JWTError
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import joinedload
-
+from fastapi.middleware.cors import CORSMiddleware
+from typing import List
 
 Base.metadata.create_all(bind = engine)
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 
@@ -45,7 +53,7 @@ def obtener_usuario_actual(token: str = Depends(oauth2_scheme), db: Session = De
 
 
 @app.get("/productos")
-def listar_productos(db: Session = Depends(obtener_sesion), usuario_actual: Usuario = Depends(obtener_usuario_actual)):
+def listar_productos_usuario(db: Session = Depends(obtener_sesion), usuario_actual: Usuario = Depends(obtener_usuario_actual)):
     query = (
         select(Producto)
         .options(joinedload(Producto.dueño)) 
@@ -64,6 +72,24 @@ def listar_productos(db: Session = Depends(obtener_sesion), usuario_actual: Usua
 
     return productos_respuesta
 
+@app.get("/productos/todos", response_model=List[ProductoSchema])
+def listar_todos_productos(db: Session = Depends(obtener_sesion)):
+    query = select(Producto).options(joinedload(Producto.dueño))
+    productos = db.execute(query).unique().all()
+
+    productos_respuesta = []
+
+    for producto in productos:
+        producto_schema = ProductoSchema(
+        id = producto.id, nombre = producto.nombre, 
+        dueño_email=producto.dueño.email,
+        ingredientes = producto.ingredientes
+    )
+        productos_respuesta.append(producto_schema)
+    
+    return producto_schema
+        
+           
 
 @app.post("/productos", response_model=ProductoSchema)
 def insertar_producto(
