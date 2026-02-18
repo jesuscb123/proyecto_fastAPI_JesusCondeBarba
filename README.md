@@ -1,7 +1,6 @@
 # 📋 Gestión de Recetas y Productos (FastAPI + Vue 3)
 
 Este proyecto es una aplicación web completa para la gestión de recetas. Permite a los usuarios registrarse, iniciar sesión y administrar sus propios productos, asociando ingredientes a cada uno. El sistema está construido con una arquitectura moderna, separando el backend (API REST) del frontend (SPA), y está totalmente dockerizado para facilitar su despliegue.
-## DEMO
 
 ## 🚀 Características Principales
 
