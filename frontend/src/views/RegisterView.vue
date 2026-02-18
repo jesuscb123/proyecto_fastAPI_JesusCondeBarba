@@ -30,9 +30,3 @@ const handleRegistro = async () => {
     <router-link to="/">¿Ya tienes cuenta? Entra aquí</router-link>
   </div>
 </template>
-
-<style scoped>
-.register { max-width: 300px; margin: 2rem auto; display: flex; flex-direction: column; gap: 1rem; }
-input, button { padding: 0.5rem; margin-bottom: 0.5rem; width: 100%; }
-a { font-size: 0.8rem; text-align: center; color: #42b983; }
-</style>

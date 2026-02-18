@@ -29,8 +29,3 @@ const acceder = async () => {
     </form>
   </div>
 </template>
-
-<style scoped>
-.login { max-width: 300px; margin: 2rem auto; display: flex; flex-direction: column; gap: 1rem; }
-input, button { padding: 0.5rem; margin-bottom: 0.5rem; }
-</style>

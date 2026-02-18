@@ -1,0 +1,174 @@
+/* --- VARIABLES (Paleta Crema Familiar) --- */
+:root {
+  --bg-warm: #fdfaf5;       
+  --card-bg: #ffffff;       
+  --text-main: #2d3436;     
+  --text-dim: #636e72;      
+  --neon-green: #2ecc71;    
+  --accent-soft: #e8f8f0;   
+  --border: #f1e9da;        
+  --shadow: rgba(184, 172, 147, 0.2);
+}
+
+/* --- BASE --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-warm);
+  color: var(--text-main);
+}
+
+/* --- HEADER --- */
+header {
+  background: rgba(253, 250, 245, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+nav::before { content: ""; flex: 1; }
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex: 2;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover, nav a.router-link-active {
+  color: var(--neon-green);
+  background: var(--accent-soft);
+}
+
+.btn-nuevo {
+  background: var(--neon-green) !important;
+  color: white !important;
+}
+
+.btn-salir {
+  background: #fff;
+  color: #d63031;
+  border: 1.5px solid #ff7675;
+  padding: 5px 15px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* --- TÍTULOS --- */
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 40px 0 20px 0;
+  color: var(--text-main);
+  font-weight: 800;
+}
+
+/* --- FORMULARIOS --- */
+.login, .register, .form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 40px;
+  background: var(--card-bg);
+  border-radius: 30px;
+  border: 2px solid var(--border);
+  box-shadow: 0 10px 25px var(--shadow);
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+button[type="submit"], .btn-guardar {
+  width: 100%;
+  padding: 15px;
+  background: var(--neon-green);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* --- GRID Y CARDS --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 20px;
+  border: 2px solid var(--border);
+  box-shadow: 0 5px 15px var(--shadow);
+}
+
+.card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+.card li {
+  background: var(--accent-soft);
+  color: #27ae60;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}

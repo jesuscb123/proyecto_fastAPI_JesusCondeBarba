@@ -75,7 +75,7 @@ def listar_productos_usuario(db: Session = Depends(obtener_sesion), usuario_actu
 @app.get("/productos/todos", response_model=List[ProductoSchema])
 def listar_todos_productos(db: Session = Depends(obtener_sesion)):
     query = select(Producto).options(joinedload(Producto.dueño))
-    productos = db.execute(query).unique().all()
+    productos = db.execute(query).scalars().unique().all()
 
     productos_respuesta = []
 
@@ -87,7 +87,7 @@ def listar_todos_productos(db: Session = Depends(obtener_sesion)):
     )
         productos_respuesta.append(producto_schema)
     
-    return producto_schema
+    return productos_respuesta
         
            
 

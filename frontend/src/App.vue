@@ -7,26 +7,40 @@ const router = useRouter()
 
 const handleLogout = () => {
   auth.logout()
-  router.push('/login')
+  router.push('/')
 }
 </script>
 
 <template>
-  <header v-if="auth.token">
+  <header v-if="true" class="main-header">
     <nav>
-      <router-link to="/productos-todos">🌎 Comunidad</router-link> | 
-      <router-link to="/productos">🍳 Mis Recetas</router-link> | 
-      <span>Bienvenido, {{ auth.userEmail }}</span> |
-      <button @click="handleLogout">Salir</button>
+      <div class="nav-links">
+        <router-link to="/productos-todos">🌎 Comunidad</router-link>
+        <router-link to="/productos">🍳 Mis Recetas</router-link>
+        <router-link to="/crear" class="btn-nuevo">➕ Nueva Receta</router-link>
+      </div>
+
+      <div class="nav-user">
+        <span class="user-email" v-if="auth.userEmail">{{ auth.userEmail }}</span>
+        <button class="btn-salir" @click="handleLogout">Salir</button>
+      </div>
     </nav>
   </header>
 
-  <RouterView />
+  <main class="contenedor-principal">
+    <RouterView />
+  </main>
 </template>
 
 <style scoped>
-nav { background: #34495e; padding: 1rem; color: white; }
-nav a { color: #42b983; margin: 0 10px; text-decoration: none; font-weight: bold; }
-nav a.router-link-active { color: white; border-bottom: 2px solid white; }
-button { background: #e74c3c; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px; }
+/* Estos estilos aseguran que el header sea visible incluso si el CSS externo falla */
+.main-header {
+  display: block !important;
+  width: 100%;
+  min-height: 60px;
+}
+
+.contenedor-principal {
+  padding-top: 20px;
+}
 </style>

@@ -22,9 +22,7 @@ onMounted(cargarTodos)
 
 <template>
   <div class="container">
-    <h1>🌍 Recetas de la Comunidad</h1>
-    <p>Aquí puedes ver lo que están cocinando otros usuarios.</p>
-
+    <h2>🌍 Recetas de la Comunidad</h2>
     <div class="grid">
       <div v-for="p in productos" :key="p.id" class="card">
         <h3>{{ p.nombre }}</h3>
@@ -40,21 +38,3 @@ onMounted(cargarTodos)
     </div>
   </div>
 </template>
-
-<style scoped>
-.container { padding: 20px; }
-.grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-  gap: 20px; 
-}
-.card { 
-  border: 1px solid #ddd; 
-  border-radius: 10px; 
-  padding: 15px; 
-  background: #fdfdfd;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-.autor { color: #666; font-size: 0.9rem; }
-h1 { color: #2c3e50; }
-</style>
