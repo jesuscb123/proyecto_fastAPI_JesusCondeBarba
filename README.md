@@ -1,6 +1,15 @@
 # 📋 Gestión de Recetas y Productos (FastAPI + Vue 3)
 
 Este proyecto es una aplicación web completa para la gestión de recetas. Permite a los usuarios registrarse, iniciar sesión y administrar sus propios productos, asociando ingredientes a cada uno. El sistema está construido con una arquitectura moderna, separando el backend (API REST) del frontend (SPA), y está totalmente dockerizado para facilitar su despliegue.
+## DEMO
+* Iniciar sesión
+  <img width="1917" height="936" alt="image" src="https://github.com/user-attachments/assets/54d0ce07-02cd-430f-9cc1-b05ae76a2da1" />
+* Registro
+    <img width="1915" height="937" alt="image" src="https://github.com/user-attachments/assets/d0ea86cd-2dd6-4103-8be7-05d2013724b5" />
+* Mis recetas
+    <img width="1919" height="943" alt="image" src="https://github.com/user-attachments/assets/caae7e33-bc82-49d7-9fc9-ee34571c96bc" />
+* Recetas de la comunidad
+    <img width="1919" height="940" alt="image" src="https://github.com/user-attachments/assets/20c76439-96c2-4288-b1fb-2a31b39caf25" />
 
 ## 🚀 Características Principales
 
