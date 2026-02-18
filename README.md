@@ -102,7 +102,7 @@ Este proyecto es una aplicación web completa para la gestión de recetas. Permi
 | `POST` | `/usuarios` | Registrar un nuevo usuario | ❌ |
 | `GET` | `/productos` | Listar productos del usuario actual | ✅ |
 | `POST` | `/productos` | Crear un nuevo producto con ingredientes | ✅ |
-| `GET` | `/productos/todos` | Listar todos los productos (público) | ❌ |
+| `GET` | `/productos/todos` | Listar todos los productos (público) | ✅ |
 
 ## 👤 Autor
 Proyecto realizado como práctica para Libnamic.
