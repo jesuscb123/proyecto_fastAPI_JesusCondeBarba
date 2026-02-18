@@ -104,7 +104,7 @@ Este proyecto es una aplicación web completa para la gestión de recetas. Permi
 | `POST` | `/productos` | Crear un nuevo producto con ingredientes | ✅ |
 | `GET` | `/productos/todos` | Listar todos los productos (público) | ✅ |
 
-## 👤 Autor
+## 👤 Jesús Conde Barba
 Proyecto realizado como práctica para Libnamic.
 - [Repositorio GitHub](https://github.com/jesuscb123/proyecto_fastAPI_JesusCondeBarba)
 
