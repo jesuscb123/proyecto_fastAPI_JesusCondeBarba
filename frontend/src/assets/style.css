@@ -11,12 +11,24 @@
 }
 
 /* --- BASE --- */
-body {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
+}
+
+body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-warm);
   color: var(--text-main);
+}
+
+/* --- ESTRUCTURA PRINCIPAL --- */
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px); /* Altura dinámica */
+  width: 100%;
 }
 
 /* --- HEADER --- */
@@ -37,8 +49,6 @@ nav {
   max-width: 1200px;
   margin: 0 auto;
 }
-
-nav::before { content: ""; flex: 1; }
 
 .nav-links {
   display: flex;
@@ -90,15 +100,16 @@ nav a:hover, nav a.router-link-active {
 h2 {
   text-align: center;
   font-size: 2.2rem;
-  margin: 40px 0 20px 0;
+  margin: 30px 0;
   color: var(--text-main);
   font-weight: 800;
 }
 
-/* --- FORMULARIOS --- */
+/* --- FORMULARIOS (Centrados verticalmente) --- */
 .login, .register, .form-container {
   max-width: 400px;
-  margin: 50px auto;
+  width: 90%;
+  margin: auto; /* MÁGIA: centra el cuadro en el espacio sobrante de la pantalla */
   padding: 40px;
   background: var(--card-bg);
   border-radius: 30px;
@@ -138,7 +149,7 @@ button[type="submit"], .btn-guardar {
   cursor: pointer;
 }
 
-/* --- GRID Y CARDS --- */
+/* --- GRID Y CARDS (Alineados arriba) --- */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -146,6 +157,7 @@ button[type="submit"], .btn-guardar {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  align-self: stretch; /* Se expande normalmente */
 }
 
 .card {

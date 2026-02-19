@@ -31,15 +31,3 @@ const handleLogout = () => {
     <RouterView />
   </main>
 </template>
-
-<style scoped>
-/* Eliminamos el !important del display para que el v-if de Vue pueda ocultarlo correctamente */
-.main-header {
-  width: 100%;
-  min-height: 60px;
-}
-
-.contenedor-principal {
-  padding-top: 20px;
-}
-</style>

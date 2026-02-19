@@ -21,7 +21,7 @@ const handleRegistro = async () => {
 
 <template>
   <div class="register">
-    <h2>Crear Cuenta Nueva</h2>
+    <h2>Registro</h2>
     <form @submit.prevent="handleRegistro">
       <input v-model="email" type="email" placeholder="Tu nuevo email" required>
       <input v-model="password" type="password" placeholder="Tu contraseña" required>

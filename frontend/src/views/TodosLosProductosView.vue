@@ -22,7 +22,7 @@ onMounted(cargarTodos)
 
 <template>
   <div class="container">
-    <h2>🌍 Recetas de la Comunidad</h2>
+    <h2>🌎 Recetas de la Comunidad</h2>
     <div class="grid">
       <div v-for="p in productos" :key="p.id" class="card">
         <h3>{{ p.nombre }}</h3>
