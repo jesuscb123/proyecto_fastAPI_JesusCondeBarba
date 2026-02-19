@@ -1,13 +1,13 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy import select
-from app.database.database import SessionLocal, engine, Base
-from app.model.producto import Producto
-from app.model.ingrediente import Ingrediente
-from app.schemas.productoSchema import ProductoSchema
-from app.schemas.usuarioSchema import UsuarioSchema
-from app.schemas.usuarioCreado import UsuarioCreado
-from app.model.usuario import Usuario
+from app.data.database.config import SessionLocal, engine, Base
+from app.domain.model.producto import Producto
+from app.domain.model.ingrediente import Ingrediente
+from app.domain.schemas.productoSchema import ProductoSchema
+from app.domain.schemas.usuarioSchema import UsuarioSchema
+from app.domain.schemas.usuarioCreado import UsuarioCreado
+from app.domain.model.usuario import Usuario
 from app.seguridad.seguridad import *
 from fastapi.security import OAuth2PasswordRequestForm
 from jose import jwt, JWTError
@@ -15,9 +15,11 @@ from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import joinedload
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
+from app.api.routers import usuariosRouters
 
 Base.metadata.create_all(bind = engine)
 app = FastAPI()
+app.include_router(usuariosRouters.router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -109,45 +111,6 @@ def insertar_producto(
 
     return nuevo_producto
 
-
-
-@app.post("/usuarios", response_model=UsuarioSchema)
-def registrar_usuario(usuario_creado: UsuarioCreado, db: Session = Depends(obtener_sesion)) -> Usuario:
-    usuario_existe = db.query(Usuario).filter(Usuario.email == usuario_creado.email).first()
-    if usuario_existe:
-        raise HTTPException(status_code=400, detail="El email ya está registrado")
-    
-    password_encriptada = encriptar_password(usuario_creado.password)
-
-    nuevo_usuario = Usuario(
-        email=usuario_creado.email,
-        password_hash=password_encriptada 
-    )
-
-    db.add(nuevo_usuario)
-    db.commit()
-    db.refresh(nuevo_usuario)
-
-    return nuevo_usuario
-
-
-@app.post("/login")
-def login(
-    form_data: OAuth2PasswordRequestForm = Depends(), 
-    db: Session = Depends(obtener_sesion)
-):
-    usuario = db.query(Usuario).filter(Usuario.email == form_data.username).first()
-
-    if not usuario or not verificar_password(form_data.password, usuario.password_hash):
-        raise HTTPException(
-            status_code=401, 
-            detail="Email o contraseña incorrectos",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-
-    access_token = crear_token_acceso(data={"sub": usuario.email})
-
-    return {"access_token": access_token, "token_type": "bearer"}
 
 
 

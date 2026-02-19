@@ -1,6 +1,6 @@
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from app.database.database import Base 
+from app.data.database.config import Base 
 from typing import List
 
 class Usuario(Base):

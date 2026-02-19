@@ -1,7 +1,7 @@
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import List
-from app.database.database import Base 
+from app.data.database.config import Base 
 
 class Producto(Base):
     __tablename__ = "productos"

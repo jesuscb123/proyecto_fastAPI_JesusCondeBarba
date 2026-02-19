@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List
-from app.schemas.ingredienteSchema import IngredienteSchema
+from app.domain.schemas.ingredienteSchema import IngredienteSchema
 
 class ProductoSchema(BaseModel):
     nombre: str

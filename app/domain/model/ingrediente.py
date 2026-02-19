@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import ForeignKey
-from app.database.database import Base
+from app.data.database.config import Base
 
 class Ingrediente(Base):
     __tablename__ = "ingredientes"

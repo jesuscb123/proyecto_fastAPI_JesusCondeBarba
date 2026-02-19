@@ -14,7 +14,10 @@ class UsuarioService:
         usuario_existe = self.usuarioRepository.obtener_usuario_email(email)
 
         if usuario_existe:
-            raise Exception ("Usuario ya existe")
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="El correo electrónico ya está registrado"
+            )
         
         password_hash = encriptar_password(password)
 
@@ -24,7 +27,7 @@ class UsuarioService:
 
 
 
-    def login (self, email: str, password: str) -> Usuario:
+    def login (self, email: str, password: str) -> dict:
         usuario_existe = self.usuarioRepository.obtener_usuario_email(email)
 
         if not usuario_existe or not verificar_password(password, usuario_existe.password_hash):
