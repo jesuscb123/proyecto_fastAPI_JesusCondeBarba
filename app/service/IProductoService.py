@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from app.domain.model.producto import Producto
 
-class IProductoRepository(ABC):
+class IProductoService(ABC):
     @abstractmethod
     def listar_todos_productos(self) -> list[Producto]:
         pass
@@ -9,7 +9,3 @@ class IProductoRepository(ABC):
     @abstractmethod
     def listar_productos_usuario(self, email: str) -> list[Producto]:
         pass
-
-    @abstractmethod
-    def insertar_producto(self, producto: Producto):
-        pass 

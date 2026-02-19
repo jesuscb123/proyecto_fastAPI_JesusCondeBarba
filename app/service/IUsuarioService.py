@@ -6,5 +6,6 @@ class IUsuarioService(ABC):
     def obtener_usuario_email(self, email: str) -> Usuario:
         pass
 
+    @abstractmethod
     def insertar_usuario(self, usuario: Usuario):
         pass

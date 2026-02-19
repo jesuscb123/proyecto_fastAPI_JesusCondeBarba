@@ -6,7 +6,7 @@ from fastapi.security import OAuth2PasswordBearer
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi import status
 
-class UsuarioService:
+class UsuarioService(IUsuarioRepository):
     def __init__(self, usuarioRepository: IUsuarioRepository):
         self.usuarioRepository = usuarioRepository
 
