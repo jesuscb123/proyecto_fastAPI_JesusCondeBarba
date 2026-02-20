@@ -12,4 +12,7 @@ class Producto(Base):
     usuario_id: Mapped[int] = mapped_column(ForeignKey("usuarios.id"))
     dueño: Mapped["Usuario"] = relationship(back_populates="productos")
 
-    ingredientes: Mapped[List["Ingrediente"]] = relationship(back_populates="producto")
+    ingredientes: Mapped[List["Ingrediente"]] = relationship(
+        back_populates="producto",
+        cascade="all, delete-orphan"
+    )

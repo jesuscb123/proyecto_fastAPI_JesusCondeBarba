@@ -1,4 +1,5 @@
 from app.data.repository.IUsuarioRepository import IUsuarioRepository
+from app.service.IUsuarioService import IUsuarioService
 from app.domain.model.usuario import Usuario
 from app.seguridad.seguridad import *
 from fastapi.security import OAuth2PasswordRequestForm
@@ -6,7 +7,7 @@ from fastapi.security import OAuth2PasswordBearer
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi import status
 
-class UsuarioService(IUsuarioRepository):
+class UsuarioService(IUsuarioService):
     def __init__(self, usuarioRepository: IUsuarioRepository):
         self.usuarioRepository = usuarioRepository
 

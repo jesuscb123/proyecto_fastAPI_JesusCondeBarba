@@ -13,3 +13,4 @@ class UsuarioRepository(IUsuarioRepository):
         self.db.add(usuario)
         self.db.commit()
         self.db.refresh(usuario)
+        return usuario

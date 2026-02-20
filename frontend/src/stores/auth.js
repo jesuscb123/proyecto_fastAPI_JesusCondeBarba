@@ -24,7 +24,7 @@ export const useAuthStore = defineStore('auth', {
       formData.append('password', password)
 
       try {
-        const res = await axios.post('http://localhost:8000/login', formData)
+        const res = await axios.post('http://localhost:8000/usuarios/login', formData)
 
         this.token = res.data.access_token
         this.userEmail = email

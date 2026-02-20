@@ -3,9 +3,9 @@ from app.domain.model.usuario import Usuario
 
 class IUsuarioService(ABC):
     @abstractmethod
-    def obtener_usuario_email(self, email: str) -> Usuario:
+    def registar_usuario(self, email: str, password: str):
         pass
 
     @abstractmethod
-    def insertar_usuario(self, usuario: Usuario):
+    def login (self, email: str, password: str) -> dict:
         pass

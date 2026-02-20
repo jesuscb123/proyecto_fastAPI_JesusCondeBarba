@@ -21,3 +21,8 @@ class ProductoRepository(IProductoRepository):
        
        return self.db.execute(query).scalars().all()
     
+    def insertar_producto(self, producto):
+        self.db.add(producto)      
+        self.db.commit()           
+        self.db.refresh(producto)
+        return producto

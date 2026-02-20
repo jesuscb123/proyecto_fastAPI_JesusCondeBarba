@@ -8,7 +8,7 @@ const productos = ref([])
 
 const cargarTodos = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/productos/todos', {
+    const res = await axios.get('http://localhost:8000/productos/', {
       headers: { Authorization: `Bearer ${auth.token}` }
     })
     productos.value = res.data
