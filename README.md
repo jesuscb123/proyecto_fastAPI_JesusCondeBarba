@@ -110,3 +110,6 @@ Proyecto realizado como práctica para Libnamic.
 
 ----
 [Versión con JSONB (Rama separada)](https://github.com/jesuscb123/proyecto_fastAPI_JesusCondeBarba/tree/pruebas-jsonb)
+
+----
+[Versión backend refactorizado](https://github.com/jesuscb123/proyecto_fastAPI_JesusCondeBarba/tree/refactorizado)
